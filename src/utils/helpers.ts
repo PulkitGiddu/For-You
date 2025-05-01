@@ -37,7 +37,6 @@ export const getWeatherEmoji = (weatherCondition: string): string => {
 export const generateSearchQuery = (mood: string): string => {
   const moodArtists: Record<string, string[]> = {
     happy: ['Arijit Singh', 'KK', 'Ali Zafar', 'Jubin Nautiyal', 'Vishal Mishra', 'Mohit Chauhan', 'Sachet Tandon'],
-    sad: ['Jubin Nautiyal', 'Vishal Mishra', 'Mohit Chauhan', 'Sachet Tandon'],
     peaceful: ['Satinder Sartaaj', 'Arijit Singh', 'Atif Aslam'],
     chill: ['Anuv Jain', 'AP Dhillon'],
     energetic: ['Diljit Dosanjh', 'Karan Aujla', 'Yo Yo Honey Singh'],
