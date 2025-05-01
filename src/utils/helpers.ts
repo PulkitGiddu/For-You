@@ -2,7 +2,7 @@
 // Time-related helper functions
 export const getTimeOfDay = (): 'morning' | 'afternoon' | 'evening' | 'night' => {
   const hour = new Date().getHours();
-  
+
   if (hour >= 5 && hour < 12) return 'morning';
   if (hour >= 12 && hour < 17) return 'afternoon';
   if (hour >= 17 && hour < 21) return 'evening';
@@ -11,7 +11,7 @@ export const getTimeOfDay = (): 'morning' | 'afternoon' | 'evening' | 'night' =>
 
 export const getGreeting = (): string => {
   const timeOfDay = getTimeOfDay();
-  
+
   switch (timeOfDay) {
     case 'morning': return 'Good morning';
     case 'afternoon': return 'Good afternoon';
@@ -23,22 +23,22 @@ export const getGreeting = (): string => {
 // Weather-related helpers
 export const getWeatherEmoji = (weatherCondition: string): string => {
   const condition = weatherCondition.toLowerCase();
-  
+
   if (condition.includes('clear')) return '☀️';
   if (condition.includes('cloud')) return '☁️';
   if (condition.includes('rain')) return '🌧️';
   if (condition.includes('snow')) return '❄️';
   if (condition.includes('thunder')) return '⚡';
   if (condition.includes('fog') || condition.includes('mist')) return '🌫️';
-  
+
   return '🌤️';
 };
 
 export const generateSearchQuery = (mood: string): string => {
   const moodArtists: Record<string, string[]> = {
-    happy: ['Arijit Singh', 'KK', 'Ali Zafar', 'Jubin Nautiyal', 'Vishal Mishra', 'Mohit Chauhan', 'Sachet Tandon' ],
-    sad: ['Jubin Nautiyal', 'Vishal Mishra', 'Mohit Chauhan', 'Sachet Tandon' ],
-    peaceful: ['Satinder Sartaaj','Arijit Singh', 'Atif Aslam' ],
+    happy: ['Arijit Singh', 'KK', 'Ali Zafar', 'Jubin Nautiyal', 'Vishal Mishra', 'Mohit Chauhan', 'Sachet Tandon'],
+    sad: ['Jubin Nautiyal', 'Vishal Mishra', 'Mohit Chauhan', 'Sachet Tandon'],
+    peaceful: ['Satinder Sartaaj', 'Arijit Singh', 'Atif Aslam'],
     chill: ['Anuv Jain', 'AP Dhillon'],
     energetic: ['Diljit Dosanjh', 'Karan Aujla', 'Yo Yo Honey Singh'],
     "pulkit's playlist": ['Pulkit personal favorites']
@@ -120,7 +120,12 @@ export const getRandomAffirmation = (): string => {
     "If loving me is wrong, you’re doing life wrong.",
     "I'm not high maintenance — I’m romantically deluxe.",
     "I'm emotionally available... after coffee.",
-    "The right person will love my weird just right."
+    "The right person will love my weird just right.",
+
+    // 🌸 Personal Addition
+    "Mansi, ek baat bolu? Like I was reading something and I found a beautiful line saying, 'Find out your flow or Ikigai.' It means finding what you love to do. And you know, I never get tired of doing anything for the ones I love, and probably that count has increased. And that is you.",
+    "And mujae lagta hai ki subsae mushkil tha for us to find each other amongst millions of people and you know what's the easy part now in our life is to never loose each other",
+    "So, I love you because the entire universe conspired to help me find you."
   ];
 
   const randomIndex = Math.floor(Math.random() * affirmations.length);

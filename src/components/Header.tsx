@@ -36,7 +36,7 @@ const Header = ({ name = "Mansi" }: HeaderProps) => {
   return (
     <header className="w-full flex items-center justify-between mb-8">
       <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-        <span className="animate-float inline-block">🎵</span> For You
+        <span className="animate-float inline-block"></span> For You
       </h1>
       
       <div className="flex items-center gap-4">

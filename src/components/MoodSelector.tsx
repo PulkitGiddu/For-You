@@ -21,7 +21,7 @@ const MoodSelector = ({ onMoodSelect, selectedMood }: MoodSelectorProps) => {
     { name: "sad", emoji: "😢", color: "bg-blue-100 dark:bg-blue-900" },
     { name: "chill", emoji: "😌", color: "bg-green-100 dark:bg-green-900" },
     { name: "energetic", emoji: "⚡", color: "bg-orange-100 dark:bg-orange-900" },
-    { name: "pulkit's playlist", emoji: "❤️", color: "bg-red-100 dark:bg-red-900" },
+    { name: "pulkit's playlist", emoji: "❤️", color: "bg-red-100 dark:bg-red-900 animate-heartbeat" },
   ];
 
   const handleMoodClick = (mood: string) => {
@@ -39,6 +39,7 @@ const MoodSelector = ({ onMoodSelect, selectedMood }: MoodSelectorProps) => {
       onMoodSelect(mood);
     }
   };
+  
 
   const closePopup = () => {
     setShowPopup(false);
@@ -72,6 +73,8 @@ const MoodSelector = ({ onMoodSelect, selectedMood }: MoodSelectorProps) => {
         </CardContent>
       </Card>
 
+      
+
       {/* Popup for Sad Mood */}
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -81,7 +84,7 @@ const MoodSelector = ({ onMoodSelect, selectedMood }: MoodSelectorProps) => {
           >
             <h2 className="text-lg font-bold">Hey, don't be sad! 😊</h2>
             <p className="mt-2 text-sm">
-              You are amazing, and everything will be okay! Here's a virtual hug 🤗
+              You are amazing, and everything will be okay! 
             </p>
             <p className="mt-2 text-sm">
                 Remember, it's okay to feel sad sometimes.
