@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import WeatherDisplay from "@/components/WeatherDisplay";
 import MoodSelector from "@/components/MoodSelector";
@@ -9,6 +10,8 @@ import ThoughtSpace from "@/components/ThoughtSpace";
 import { useWeather } from "@/hooks/useWeather";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useToast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
+import { GalleryHorizontal } from "lucide-react";
 
 const Index = () => {
   const { weather } = useWeather();
@@ -65,6 +68,15 @@ const Index = () => {
 
         <div className="mb-6">
           <ThoughtSpace />
+        </div>
+        
+        {/* Gallery Link */}
+        <div className="flex justify-center mb-6">
+          <Button asChild variant="secondary" size="lg" className="gap-2">
+            <Link to="/gallery">
+              <GalleryHorizontal className="h-5 w-5" /> View Photo Gallery
+            </Link>
+          </Button>
         </div>
 
         <footer className="text-center text-sm text-muted-foreground mt-8">
