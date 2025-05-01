@@ -15,8 +15,8 @@ export const useMusic = (mood: string, weather: string, timeOfDay: string) => {
 
       
       try {
-        const apiKey = 'AIzaSyD-DtJR-FeRljjNFpHw-Q3Qj4Jjw5q8h3g'; // Replace with your YouTube Data API v3 key
-        const searchQuery = generateSearchQuery(mood, weather, timeOfDay);
+        const apiKey = 'AIzaSyCQQ24gYaCOPf702f4AAeVW0y28cnQsZyk'; // Replace with your YouTube Data API v3 key
+        const searchQuery = generateSearchQuery(mood);
 
         // Make a request to the YouTube Data API
         const response = await fetch(
@@ -28,7 +28,7 @@ export const useMusic = (mood: string, weather: string, timeOfDay: string) => {
         if (!response.ok) {
           throw new Error('Failed to fetch music recommendation');
         }
-        
+
         const data = await response.json();
 
         if (data.items && data.items.length > 0) {

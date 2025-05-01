@@ -34,32 +34,23 @@ export const getWeatherEmoji = (weatherCondition: string): string => {
   return '🌤️';
 };
 
-export const generateSearchQuery = (
-  mood: string, 
-  weather: string, 
-  timeOfDay: string
-): string => {
-  let baseGenres = ['Bollywood', 'Hindi songs'];
+export const generateSearchQuery = (mood: string): string => {
+  const moodArtists: Record<string, string[]> = {
+    happy: ['Arijit Singh', 'KK', 'Ali Zafar', 'Jubin Nautiyal', 'Vishal Mishra', 'Mohit Chauhan', 'Sachet Tandon' ],
+    sad: ['Jubin Nautiyal', 'Vishal Mishra', 'Mohit Chauhan', 'Sachet Tandon' ],
+    peaceful: ['Satinder Sartaaj','Arijit Singh', 'Atif Aslam' ],
+    chill: ['Anuv Jain', 'AP Dhillon'],
+    energetic: ['Diljit Dosanjh', 'Karan Aujla', 'Yo Yo Honey Singh'],
+    "pulkit's playlist": ['Pulkit personal favorites']
+  };
 
-  // Enhance based on mood
-  if (mood.toLowerCase().includes('happy') || mood.toLowerCase().includes('energetic')) {
-    baseGenres.push('Punjabi');
-  }
+  const normalizedMood = mood.toLowerCase();
 
-  if (mood.toLowerCase().includes('calm') || mood.toLowerCase().includes('peaceful') || mood.toLowerCase().includes('nature')) {
-    baseGenres.push('Uttarakhand folk', 'Pahadi songs');
-  }
+  // Get the artist for the mood
+  const artist = moodArtists[normalizedMood]?.[0] || 'Unknown Artist';
 
-  // Optional: add "lofi", "mix", or "playlist" if user wants background vibes
-  const extras = ['playlist', 'mix', "🎵 Pulkit's playlist"];
-
-  // Shuffle an array
-  const shuffleArray = (array: string[]) => array.sort(() => Math.random() - 0.5);
-
-  // Shuffle genres and extras
-  const shuffledGenres = shuffleArray(baseGenres);
-  // Final query string
-  return `${mood} ${weather} ${timeOfDay} ${shuffledGenres.join(' ')} `;
+  // Generate the search query
+  return `${artist} ${mood} playlist`;
 };
 
 export const getRandomAffirmation = (): string => {
