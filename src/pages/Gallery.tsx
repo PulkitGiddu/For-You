@@ -57,7 +57,7 @@ const Gallery = () => {
         </div>
 
         <footer className="text-center text-sm text-muted-foreground mt-8">
-          <p>Mood Melody - Made with 💜 for you</p>
+          <p>Made with 💜 For You</p>
         </footer>
       </div>
     </div>

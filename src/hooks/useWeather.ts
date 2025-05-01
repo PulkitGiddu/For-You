@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 
@@ -9,7 +8,7 @@ interface WeatherData {
   city: string;
 }
 
-export const useWeather = (defaultCity = 'Tokyo') => {
+export const useWeather = (defaultCity = 'Uttarakhand') => {
   const [city, setCity] = useState<string>(() => {
     const savedCity = localStorage.getItem('mood-melody-city');
     return savedCity || defaultCity;
@@ -22,40 +21,36 @@ export const useWeather = (defaultCity = 'Tokyo') => {
   useEffect(() => {
     const fetchWeather = async () => {
       if (!city) return;
-      
+
       setLoading(true);
       setError(null);
-      
+
       try {
-        // For demo purposes, we'll simulate the weather data
-        // In a real app, you would use OpenWeatherMap API or another weather API
-        const mockWeatherConditions = [
-          'Clear Sky', 'Partly Cloudy', 'Cloudy', 
-          'Light Rain', 'Moderate Rain', 'Heavy Rain',
-          'Thunderstorm', 'Snow', 'Fog'
-        ];
-        
-        const mockTemp = Math.floor(Math.random() * 30) + 5; // 5-35°C
-        const mockCondition = mockWeatherConditions[Math.floor(Math.random() * mockWeatherConditions.length)];
-        const mockIcon = mockCondition.toLowerCase().replace(' ', '-');
-        
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 500));
-        
-        setWeather({
-          temperature: mockTemp,
-          condition: mockCondition,
-          icon: mockIcon,
-          city: city
-        });
-        
+        const apiKey = '7fec665673b70e73814c98b48126c25e'; // Replace with your OpenWeather API key
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch weather data');
+        }
+
+        const data = await response.json();
+        const weatherData: WeatherData = {
+          temperature: Math.round(data.main.temp),
+          condition: data.weather[0].description,
+          icon: data.weather[0].icon,
+          city: data.name,
+        };
+
+        setWeather(weatherData);
         localStorage.setItem('mood-melody-city', city);
       } catch (err) {
         setError('Failed to fetch weather data');
         toast({
           title: "Weather Error",
-          description: "Couldn't fetch the current weather. Using default values.",
-          variant: "destructive"
+          description: "Couldn't fetch the current weather. Please try again later.",
+          variant: "destructive",
         });
       } finally {
         setLoading(false);

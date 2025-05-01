@@ -8,7 +8,7 @@ interface HeaderProps {
   name?: string;
 }
 
-const Header = ({ name = "friend" }: HeaderProps) => {
+const Header = ({ name = "Mansi" }: HeaderProps) => {
   const [greeting, setGreeting] = useState<string>("");
   const [theme, setTheme] = useState<"light" | "dark">(
     () => (localStorage.getItem("theme") as "light" | "dark") || "light"
@@ -36,7 +36,7 @@ const Header = ({ name = "friend" }: HeaderProps) => {
   return (
     <header className="w-full flex items-center justify-between mb-8">
       <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-        <span className="animate-float inline-block">🎵</span> Mood Melody
+        <span className="animate-float inline-block">🎵</span> For You
       </h1>
       
       <div className="flex items-center gap-4">

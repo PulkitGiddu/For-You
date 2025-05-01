@@ -28,7 +28,7 @@ const Index = () => {
     
     // Welcome toast
     toast({
-      title: "Welcome to Mood Melody",
+      title: "Welcome to For You",
       description: "Select your mood, and we'll find the perfect music for you.",
     });
   }, [toast]);
@@ -80,7 +80,7 @@ const Index = () => {
         </div>
 
         <footer className="text-center text-sm text-muted-foreground mt-8">
-          <p>Mood Melody - Made with 💜 for you</p>
+          <p>Made with 💜 For You</p>
         </footer>
       </div>
     </div>
