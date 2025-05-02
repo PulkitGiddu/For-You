@@ -12,7 +12,6 @@ export const useMusic = (mood: string, weather: string, timeOfDay: string) => {
 
       setLoading(true);
       setError(null);
-
       try {
         const apiKey = 'AIzaSyB4wtsbkwnLWzhtsgCOtACX_nq2sRfMMUA'; // Replace with your YouTube Data API v3 key
         const searchQuery = generateSearchQuery(mood);

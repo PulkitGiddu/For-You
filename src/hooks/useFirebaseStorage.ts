@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   ref, 
@@ -25,6 +24,11 @@ export function useFirebaseStorage() {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
+  /**
+   * Upload a photo to Firebase Storage.
+   * @param file - The file to upload.
+   * @param caption - Optional caption for the photo.
+   */
   const uploadPhoto = async (file: File, caption: string = "") => {
     if (!file) return;
 
@@ -52,6 +56,7 @@ export function useFirebaseStorage() {
         uploadTime: timestamp
       };
       
+      // Add the new photo to the state
       setPhotos(prev => [newPhoto, ...prev]);
       
       toast({
@@ -74,6 +79,9 @@ export function useFirebaseStorage() {
     }
   };
 
+  /**
+   * Fetch all photos from Firebase Storage.
+   */
   const fetchPhotos = async () => {
     setIsLoading(true);
     try {
@@ -110,12 +118,16 @@ export function useFirebaseStorage() {
     }
   };
 
+  /**
+   * Delete a photo from Firebase Storage.
+   * @param photoId - The ID of the photo to delete.
+   */
   const deletePhoto = async (photoId: string) => {
     try {
       const photoRef = ref(storage, `photos/${photoId}`);
       await deleteObject(photoRef);
       
-      // Remove from state
+      // Remove the photo from the state
       setPhotos(prev => prev.filter(photo => photo.id !== photoId));
       
       toast({

@@ -12,7 +12,7 @@ const Affirmation = () => {
   const proposalText = [
     "Mansi, ek baat bolu? Like I was reading something and I found a beautiful line saying, 'Find out your flow or Ikigai.' It means finding what you love to do. And you know, I never get tired of doing anything for the ones I love, and probably that count has increased. And that is you.",
     "And mujae lagta hai ki subsae mushkil tha for us to find each other amongst millions of people and you know what's the easy part now in our life is to never lose each other.",
-    "So, I love you dost because the entire universe conspired to help me find you.",
+    "So, I love you because the entire universe conspired to help me find you.",
   ];
 
   useEffect(() => {
@@ -27,12 +27,12 @@ const Affirmation = () => {
   const handleButtonClick = () => {
     setAffirmation(proposalText.join(" ")); // Show proposalText
     setShowCelebration(true);
-
-    // Start celebration for 10 seconds, then reset
+  
+    // Keep proposalText visible for 20 seconds, then reset
     setTimeout(() => {
       setShowCelebration(false);
       setAffirmation(getRandomAffirmation()); // Reset to a random affirmation
-    }, 20000);
+    }, 20000); // 20 seconds
   };
 
   return (

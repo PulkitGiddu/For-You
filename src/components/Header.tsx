@@ -34,16 +34,16 @@ const Header = ({ name = "Mansi" }: HeaderProps) => {
   };
 
   return (
-    <header className="w-full flex items-center justify-between mb-8">
-      <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+    <header className="w-full flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
+      <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center md:text-left">
         <span className="animate-float inline-block"></span> For You
       </h1>
-      
-      <div className="flex items-center gap-4">
-        <h2 className="text-lg font-medium hidden md:block">
+  
+      <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+        <h2 className="text-base md:text-lg font-medium text-center md:text-left">
           {greeting}, {name}!
         </h2>
-        
+  
         <Button
           variant="outline"
           size="icon"
