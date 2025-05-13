@@ -85,7 +85,6 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         float: "float 6s ease-in-out infinite",
         pulse: "pulse 3s ease-in-out infinite",
-        heartbeat: "heartbeat 1.5s infinite", // Add heartbeat animation
       },
     },
   },
